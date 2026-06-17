@@ -80,8 +80,28 @@ class _HomepageState extends State<Homepage> {
                                     .get('Coding_languages')
                                     .keys
                                     .toList()[index];
-                                return Text(
-                                  '$language: ${snapshot.data!.get('Coding_languages')[language]}',
+                                return ListTile(
+                                  trailing: InkWell(
+                                    onTap: () async {
+                                      // 1. Get the current map from Hive
+
+                                      var currentMap = snapshot.data!.get(
+                                        'Coding_languages',
+                                      );
+                                      print(currentMap);
+                                      currentMap.remove(language);
+
+                                      setState(() {});
+                                      print('Delete $language');
+                                    },
+                                    child: Icon(Icons.delete),
+                                  ),
+                                  title: Text(language),
+                                  subtitle: Text(
+                                    snapshot.data!.get(
+                                      'Coding_languages',
+                                    )[language],
+                                  ),
                                 );
                               },
                             ),
