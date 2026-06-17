@@ -64,8 +64,29 @@ class _HomepageState extends State<Homepage> {
                   child: Card(
                     child: Container(
                       margin: const EdgeInsets.all(20),
-                      child: Text(
-                        snapshot.data!.get('name').toString() ?? 'searching',
+                      child: Column(
+                        children: [
+                          Text(
+                            snapshot.data!.get('name').toString() ??
+                                'searching',
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: List.generate(
+                              snapshot.data!.get('Coding_languages').length,
+                              (index) {
+                                var language = snapshot.data!
+                                    .get('Coding_languages')
+                                    .keys
+                                    .toList()[index];
+                                return Text(
+                                  '$language: ${snapshot.data!.get('Coding_languages')[language]}',
+                                );
+                              },
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
