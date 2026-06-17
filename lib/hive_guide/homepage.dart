@@ -10,6 +10,15 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple,
+        title: const Text(
+          'Hive Database Guide',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+      body: const Center(child: Text('Welcome to Hive Database Guide!')),
+    );
   }
 }
