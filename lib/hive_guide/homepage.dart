@@ -66,10 +66,7 @@ class _HomepageState extends State<Homepage> {
                       margin: const EdgeInsets.all(20),
                       child: Column(
                         children: [
-                          Text(
-                            snapshot.data!.get('name').toString() ??
-                                'searching',
-                          ),
+                          Text(snapshot.data!.get('name') ?? 'searching'),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
