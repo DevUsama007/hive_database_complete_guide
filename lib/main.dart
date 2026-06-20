@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:hive_database_guide/hive_guide/hive_crud_oprations.dart';
 import 'package:hive_database_guide/hive_guide/homepage.dart';
 import 'package:hive_database_guide/hive_guide/models/notes_model.dart';
 import 'package:path_provider/path_provider.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: Homepage(),
+      home: HiveCrudOpration(),
     );
   }
 }
