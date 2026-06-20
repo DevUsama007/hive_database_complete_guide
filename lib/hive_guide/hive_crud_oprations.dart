@@ -64,7 +64,13 @@ class _HiveCrudOprationState extends State<HiveCrudOpration> {
                       child: Row(
                         children: [
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              _editdialog(
+                                data[index],
+                                data[index].title,
+                                data[index].description,
+                              );
+                            },
                             icon: const Icon(Icons.edit, color: Colors.purple),
                           ),
                           IconButton(
@@ -119,6 +125,54 @@ class _HiveCrudOprationState extends State<HiveCrudOpration> {
                 Navigator.pop(context);
               },
               child: const Text('Add Notes'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('Cancel'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future _editdialog(
+    NotesModel notesModel,
+    String title,
+    String description,
+  ) async {
+    titleController.text = title;
+    descriptionController.text = description;
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Edit Notes'),
+          content: SingleChildScrollView(
+            child: Column(
+              children: [
+                TextField(
+                  controller: titleController,
+                  decoration: InputDecoration(hintText: 'Title'),
+                ),
+                TextField(
+                  controller: descriptionController,
+                  decoration: InputDecoration(hintText: 'Description'),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                notesModel.title = titleController.text;
+                notesModel.description = descriptionController.text;
+                notesModel.save();
+                Navigator.pop(context);
+              },
+              child: const Text('update Notes'),
             ),
             TextButton(
               onPressed: () {
