@@ -15,6 +15,7 @@ dev_dependencies:
 
 
 
+
 steps to follow for using the hive with list 
 
 model creation
@@ -43,3 +44,15 @@ Box class creation:
 create the get method to get the data from each model like this
 class Boxes {
   static Box<NotesModel> getNotes() => Hive.box<NotesModel>('notes');}
+
+
+  hive initialization ,box creation and register adapter in main function 
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  var path = await getApplicationDocumentsDirectory();
+  Hive.init(path.path);
+  Hive.registerAdapter(NotesModelAdapter());
+  await Hive.openBox<NotesModel>('notes');
+  Hive.registerAdapter(CustomerModelAdapter());
+  await Hive.openBox<CustomerModel>('customer_data');}
+
