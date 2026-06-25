@@ -13,6 +13,7 @@ void main() async {
   Hive.init(path.path);
   Hive.registerAdapter(NotesModelAdapter());
   await Hive.openBox<NotesModel>('notes');
+  // await Hive.deleteBoxFromDisk('customer_data');
   Hive.registerAdapter(CustomerModelAdapter());
   await Hive.openBox<CustomerModel>('customer_data');
   runApp(const MyApp());

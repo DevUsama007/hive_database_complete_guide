@@ -7,5 +7,11 @@ class CustomerModel extends HiveObject {
   String name;
   @HiveField(1)
   String address;
-  CustomerModel({required this.name, required this.address});
+  @HiveField(2)
+  List<String> orders;
+  CustomerModel({
+    required this.name,
+    required this.address,
+    this.orders = const [],
+  });
 }

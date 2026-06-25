@@ -31,6 +31,7 @@ class _CustomScreenState extends State<CustomScreen> {
               final data = CustomerModel(
                 name: nameController.text,
                 address: addressController.text,
+                orders: ['apple', 'banana', 'orange'],
               );
               final box = Boxes.getCustomer();
               box.add(data);
@@ -70,7 +71,7 @@ class _CustomScreenState extends State<CustomScreen> {
                   context: context,
                   onEditTap: () {
                     editCustomerDialogue(
-                      name: data[index].name.toString(),
+                      name: '${data[index].name.toString()}',
                       addressm: data[index].address.toString(),
                       context: context,
                       nameController: nameController,
@@ -78,6 +79,12 @@ class _CustomScreenState extends State<CustomScreen> {
                       onEdit: () {
                         data[index].name = nameController.text;
                         data[index].address = addressController.text;
+                        data[index].orders = [
+                          'apple',
+                          'banana',
+                          'orange',
+                          'mango',
+                        ];
                         data[index].save();
                         Navigator.pop(context);
                       },
@@ -86,7 +93,8 @@ class _CustomScreenState extends State<CustomScreen> {
                   onDeleteTap: () async {
                     await data[index].delete();
                   },
-                  CustomerName: data[index].name.toString(),
+                  CustomerName:
+                      '${data[index].name.toString()} ${List.generate(data[index].orders.length, (i) => data[index].orders[i])} orders',
                   CustomerLocation: data[index].address.toString(),
                 ),
               );
