@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:hive_database_guide/hive_guide/cusomter_screen.dart';
+import 'package:hive_database_guide/hive_guide/customer_screen/cusomter_screen.dart';
 import 'package:hive_database_guide/hive_guide/hive_crud_oprations.dart';
 import 'package:hive_database_guide/hive_guide/homepage.dart';
 import 'package:hive_database_guide/hive_guide/models/customer_model.dart';
