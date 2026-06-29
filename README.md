@@ -1,4 +1,4 @@
-<!-- # hive_database_guide
+<!--- # hive_database_guide
 
 Packages that are required and must be added in pubspec.yaml file
 dependencies:
@@ -11,7 +11,7 @@ dependencies:
 dev_dependencies:
   build_runner: ^2.4.13
   hive_generator: ^2.0.1
-<!-- these packages must be added at these specific possitions -->
+ these packages must be added at these specific possitions
 
 
 
@@ -36,7 +36,7 @@ Also extend the model class with HiveObject like this
 class NotesModel extends HiveObject {}
 
 after doing this all run this build runner command in the terminal
-<!-- build runner command -->
+<!-- build runner command
 command:  flutter packages pub run build_runner build
 this command will create the generated file and also add some unchangeable code 
 
@@ -55,7 +55,7 @@ void main() async {
   await Hive.openBox<NotesModel>('notes');
   Hive.registerAdapter(CustomerModelAdapter());
   await Hive.openBox<CustomerModel>('customer_data');}
- -->
+ --->
 # Hive Database Guide for Flutter
 
 This guide explains how to set up and use **Hive Database** in a Flutter project for storing data using model classes and lists.
